@@ -1,0 +1,49 @@
+﻿@model StudentsSystem.Web.ViewModels.Homework.AllViewModel;
+
+@{
+    ViewData["Title"] = "All";
+}
+
+<h1>All Homeworks</h1>
+
+@{
+    var id = "";
+    <main>
+        <hr class="bg-success" style="height: 2px" />
+        <div id="albums">
+            @foreach (var homework in Model.Homeworks)
+            {
+                id = @homework.Id;
+                <div class="row">
+                    <h3 class="col-5">
+                        <a href="/Homework/Details?id=@homework.Id">@homework.Name</a>
+                    </h3>
+                    <div class="text-center col-4">
+                        <a href="#myModal" class="trigger-btn btn btn-success" data-toggle="modal">Delete</a>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="icon-box">
+                            <i class="material-icons">&#xE5CD;</i>
+                        </div>
+                        <h4 class="modal-title">Are you sure?</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you really want to delete these records? This process cannot be undone.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                        <a href="/Homework/Delete?id=@id" class="btn btn-success text-white float-lg-right">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+}

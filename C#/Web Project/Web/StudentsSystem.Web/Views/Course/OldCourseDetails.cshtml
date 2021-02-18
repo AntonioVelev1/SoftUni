@@ -1,0 +1,22 @@
+﻿@model StudentsSystem.Web.ViewModels.Course.DetailsViewModel;
+@{
+    ViewData["Title"] = "OldCourseDetails";
+}
+
+<h1>Old Course Details</h1>
+<hr class="bg-success" style="height: 2px" />
+<hr />
+<div class="blog margin-bottom-40 d-flex justify-content-between">
+    <div class="course-data justify-content-center col-md-7">
+        <div class="card-header"><h3>Course Name: @Model.Name</h3></div>
+        <div class="card-header"><h3>Course StartOn:@Model.StartOn</h3></div>
+        <div class="card-header"><h3>Course EndOn: @Model.EndOn</h3></div>
+        <div class="card-header"><h3>Course Duration: @Model.Duration</h3></div>
+        <div class="card-header"><h3>Course Description: @Model.Description</h3></div>
+        <div class="card-header"><h3>Course Grade: @Model.Grade</h3></div>
+        <hr class="bg-success mt-5" style="height: 2px" />
+        <div class="d-flex justify-content-around mt-4">
+            <a class="btn bg-success text-white asd" asp-controller="Course" asp-action="Old">Back To All</a>
+        </div>
+    </div>
+</div>

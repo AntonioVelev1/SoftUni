@@ -1,0 +1,38 @@
+﻿@using StudentsSystem.Common
+@model StudentsSystem.Web.ViewModels.Event.CreateInputModel;
+
+@{
+    this.ViewData["Title"] = "Create event";
+}
+
+@section Header{
+    <link href="~/bootstrap-datepicker/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet" />
+}
+
+<h1>Create Event</h1>
+
+<form method="post" asp-controller="Event" asp-action="CreatePost" asp-route-courseId="@Model.CourseId">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Date"></label>
+        <input type="datetime" asp-for="Date" class="form-control" id="datepicker">
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <hr class="bg-success mt-5" style="height: 2px" />
+    <div class="d-flex justify-content-around mt-4">
+        <button type="submit" class="btn bg-success text-white" href="/Event/CreatePost?courseId=@Model.CourseId">Create</button>
+        <a href="/Course/Details?id=@Model.CourseId" class="btn bg-success text-white">Back To Courses</a>
+    </div>
+</form>
+
+
+
+@section Scripts{
+    <script src="~/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/bootstrap-datepicker/locales/bootstrap-datepicker.it.min.js"></script>
+    <script src="~/js/datepicker-init.js"></script>
+}
